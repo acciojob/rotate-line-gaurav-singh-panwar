@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-
 <html>
+  <head>
+    <style>
+      #line {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        width: 200px;
+        height: 2px;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="line"></div>
 
-<head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+    <script>
+      const line = document.getElementById('line');
 
-<body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+      let rotation = 0;
+      function rotateLine() {
+        rotation += 1;
+        line.style.transform = `rotate(${rotation}deg)`;
 
-</body>
+        requestAnimationFrame(rotateLine);
+      }
 
+      rotateLine();
+    </script>
+  </body>
 </html>
